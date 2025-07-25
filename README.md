@@ -15,20 +15,20 @@
 ## 📸 Screenshots
 
 ### 🎮 Main Game Interface
-*Place your screenshot of the main game table here*
-![Main Game Interface](screenshots/main-game.png)
+<img width="490" height="260" alt="basic" src="https://github.com/user-attachments/assets/bc41ebbe-f588-4e20-a7a7-cefb9eeeaadf" />
+
 
 ### 🃏 Split Hands Feature  
-*Show split functionality in action*
-![Split Hands](screenshots/split-hands.png)
+<img width="490" height="260" alt="split" src="https://github.com/user-attachments/assets/c5882b0f-8394-4fbf-9f61-8bf32a207ede"/>
+
 
 ### ⚙️ Customization Options
-*Settings modal with color customization*
-![Settings](screenshots/settings.png)
+<img width="490" height="260" alt="settings" src="https://github.com/user-attachments/assets/95aaa66d-804c-4ae9-858e-9e13d1fd79ef" />
+
 
 ### 📱 Mobile Responsive
-*Mobile view of the game*
-![Mobile View](screenshots/mobile.png)
+<img width="250" height="470" alt="phoneEx" src="https://github.com/user-attachments/assets/7939504e-9139-4f21-889c-352ab6e50d28" />
+
 
 ---
 
