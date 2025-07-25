@@ -1,0 +1,31 @@
+{
+  "name": "blackjack-master",
+  "version": "1.0.0",
+  "description": "A polished single-player blackjack game with split functionality and customizable themes.",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
+  },
+  "keywords": [
+    "blackjack", 
+    "single-player", 
+    "game", 
+    "casino", 
+    "cards", 
+    "split", 
+    "javascript"
+  ],
+  "author": "Azib Malik",
+  "license": "MIT",
+  "homepage": "https://azibmalik.github.io/blackjack-master",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azibmalik/blackjack-master.git"
+  }
+}

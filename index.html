@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack - Single Player</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="game-info">
+                    <h2 id="game-title">Blackjack</h2>
+                    <div class="game-stats">
+                        <span id="player-chips-label">Chips: <span id="player-chips">1000</span></span>
+                        <span id="current-bet-label">Bet: <span id="current-bet">0</span></span>
+                    </div>
+                </div>
+                <div class="game-icons">
+                    <button id="help-btn" class="icon-btn" title="How to Play"><i class="fas fa-question-circle"></i></button>
+                    <button id="settings-btn" class="icon-btn" title="Settings"><i class="fas fa-cog"></i></button>
+                </div>
+            </div>
+            <div class="game-table">
+                <!-- Dealer Area -->
+                <div id="dealer-area" class="dealer-area">
+                    <div class="dealer-label">Dealer</div>
+                    <div id="dealer-hand" class="dealer-hand player-hand"></div>
+                    <div id="dealer-value" class="hand-value"></div>
+                </div>
+                <!-- Player Area -->
+                <div id="player-area" class="players-area">
+                    <div class="player" id="player-box">
+                        <div class="player-name">You</div>
+                        <div class="player-hand" id="player-hand"></div>
+                        <div class="hand-value" id="hand-value"></div>
+                    </div>
+                </div>
+                <!-- Betting and Controls -->
+                <div id="betting-controls" class="betting-controls">
+                    <div class="bet-slider">
+                        <input type="range" id="bet-amount" min="10" max="1000" value="10">
+                        <span id="bet-value">$10</span>
+                    </div>
+                    <button id="place-bet-btn" class="btn btn-primary">Place Bet</button>
+                    <button id="deal-btn" class="btn btn-success" style="display:none;">Deal</button>
+                </div>
+                <div id="player-controls" class="player-controls" style="display:none;">
+                    <button id="hit-btn" class="btn btn-primary" data-action="hit">
+                        <i class="fas fa-plus"></i> Hit
+                    </button>
+                    <button id="stand-btn" class="btn btn-secondary" data-action="stand">
+                        <i class="fas fa-hand-paper"></i> Stand
+                    </button>
+                    <button id="double-btn" class="btn btn-warning" data-action="double">
+                        <i class="fas fa-arrows-alt-h"></i> Double
+                    </button>
+                    <button id="split-btn" class="btn btn-info" data-action="split" style="display: none;">
+                        <i class="fas fa-clone"></i> Split
+                    </button>
+                </div>
+            </div>
+            <div id="notifications" class="notifications"></div>
+        </div>
+        <!-- Help Modal -->
+        <div id="help-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span id="close-help" class="close">&times;</span>
+                <h3>🃏 How to Play Blackjack</h3>
+                <div class="help-content">
+                    <div class="help-section">
+                        <h4>🎯 Objective</h4>
+                        <p>Get your hand value as close to <span class="rule-highlight">21</span> as possible without going over, while beating the dealer's hand.</p>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h4>🃏 Card Values</h4>
+                        <ul>
+                            <li><strong>Number cards (2-10):</strong> Face value</li>
+                            <li><strong>Face cards (J, Q, K):</strong> Worth 10</li>
+                            <li><strong>Aces:</strong> Worth 1 or 11</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h4>🎮 Game Actions</h4>
+                        <ul>
+                            <li><strong>Hit:</strong> Take another card</li>
+                            <li><strong>Stand:</strong> Keep your current hand</li>
+                            <li><strong>Double:</strong> Double your bet and take exactly one more card</li>
+                            <li><strong>Split:</strong> Split matching value cards into two separate hands (costs an additional bet)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h4>💰 Payouts</h4>
+                        <ul>
+                            <li><strong>Regular win:</strong> 1:1 (double your bet)</li>
+                            <li><strong>Blackjack:</strong> 3:2 (1.5x your bet)</li>
+                            <li><strong>Push (tie):</strong> Bet returned</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h4>📋 Dealer Rules</h4>
+                        <p>The dealer must <span class="rule-highlight">hit on 16</span> and <span class="rule-highlight">stand on 17</span>. The dealer's first card is hidden until your turn is complete.</p>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h4>🎲 Tips for Success</h4>
+                        <ul>
+                            <li>Split Aces and 8s</li>
+                            <li>Never split 10s or 5s</li>
+                            <li>Double down on 11 when possible</li>
+                            <li>Learn basic strategy for optimal play</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span id="close-settings" class="close">&times;</span>
+                <h3>⚙️ Game Settings</h3>
+                
+                <div class="settings-group">
+                    <label for="bg-color-picker">🎨 Background Color</label>
+                    <input type="color" id="bg-color-picker" value="#0f4c75">
+                </div>
+                
+                <div class="settings-group">
+                    <label for="card-color-picker">🃏 Card Color</label>
+                    <input type="color" id="card-color-picker" value="#ffffff">
+                </div>
+                
+                <div class="settings-group">
+                    <label for="mute-toggle">🔊 Sound Effects</label>
+                    <input type="checkbox" id="mute-toggle">
+                </div>
+                
+                <div class="help-section">
+                    <h4>💡 Pro Tips</h4>
+                    <p>Customize your gaming experience with different colors and sound preferences. Your settings are automatically saved for future sessions!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="src/main.js"></script>
+</body>
+</html> 
