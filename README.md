@@ -1,49 +1,81 @@
-# Card Game Master 🃏
+# 🃏 Blackjack Master
 
-A polished, modern multiplayer card game featuring **Texas Hold'em Poker** and **Blackjack** with real-time probability calculations and networking capabilities.
+> A polished, feature-rich single-player Blackjack game with professional animations, split functionality, and customizable themes.
 
-![Card Game Master](https://img.shields.io/badge/Game-Card%20Master-blue)
-![Multiplayer](https://img.shields.io/badge/Multiplayer-WebSocket-green)
-![Probability](https://img.shields.io/badge/Probability-Real--time-orange)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
+![HTML5](https://img.shields.io/badge/HTML5-Canvas-orange)
+![CSS3](https://img.shields.io/badge/CSS3-Animations-blue)
+![Vite](https://img.shields.io/badge/Vite-Dev%20Server-green)
+![License](https://img.shields.io/badge/License-MIT-purple)
+
+**🎮 [Play Now Live!](https://azibmalik.github.io/blackjack-master/)**
+
+---
+
+## 📸 Screenshots
+
+### 🎮 Main Game Interface
+*Place your screenshot of the main game table here*
+![Main Game Interface](screenshots/main-game.png)
+
+### 🃏 Split Hands Feature  
+*Show split functionality in action*
+![Split Hands](screenshots/split-hands.png)
+
+### ⚙️ Customization Options
+*Settings modal with color customization*
+![Settings](screenshots/settings.png)
+
+### 📱 Mobile Responsive
+*Mobile view of the game*
+![Mobile View](screenshots/mobile.png)
+
+---
 
 ## ✨ Features
 
-### 🎮 Game Modes
-- **Texas Hold'em Poker**: Full implementation with community cards, betting rounds, and hand evaluation
-- **Blackjack**: Classic 21 with dealer AI and basic strategy recommendations
+### 🎯 Core Gameplay
+- **Classic Blackjack Rules** - Hit, Stand, Double Down, Split
+- **Advanced Split Logic** - Split up to 3 times (4 hands total)
+- **Smart Re-splitting** - Split again when you get matching cards
+- **Proper Payouts** - Blackjack pays 3:2, accurate chip calculations
+- **Dealer AI** - Follows standard casino rules (hits on 16, stands on 17)
 
-### 🧮 Probability & Statistics
-- **Real-time odds calculation** for both games
-- **Pot odds** and **winning probability** for Poker
-- **Bust probability** and **optimal actions** for Blackjack
-- **Expected value** calculations
-- **Outs counting** and hand improvement probabilities
+### 🎨 Visual Excellence  
+- **Smooth Animations** - Card dealing with realistic timing
+- **Professional UI** - Clean, modern interface with gradients
+- **Responsive Design** - Works perfectly on desktop, tablet, and mobile
+- **Visual Feedback** - Clear hand values, bet amounts, and notifications
+- **Split Hand Indicators** - Active hand highlighting during split play
 
-### 🌐 Multiplayer Networking
-- **WebSocket-based** real-time communication
-- **Automatic game matching** and room creation
-- **Live chat** with system messages
-- **Player management** with join/leave handling
+### 🔧 Customization
+- **Color Themes** - Customize background and card colors
+- **Sound Control** - Toggle sound effects on/off
+- **Settings Persistence** - Your preferences are saved automatically
+- **Betting Limits** - Configurable bet amounts with slider control
 
-### 🎨 Modern UI/UX
-- **Responsive design** that works on desktop and mobile
-- **Smooth animations** and card transitions
-- **Real-time notifications** and feedback
-- **Professional card graphics** with suit symbols
-- **Dark theme** with gradient backgrounds
+### 🎲 Game Features
+- **Multiple Split Support** - Split pairs up to 3 times
+- **Individual Hand Betting** - Each split hand tracks its own bet
+- **Accurate Calculations** - Proper push detection and payout logic
+- **Help System** - Built-in rules and strategy guide
+- **Chip Management** - Start with $1000, track your progress
+
+---
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js (v14 or higher)
 - npm or yarn
+- Modern web browser
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd card-game-master
+   git clone https://github.com/azibmalik/blackjack-master.git
+   cd blackjack-master
    ```
 
 2. **Install dependencies**
@@ -51,162 +83,178 @@ A polished, modern multiplayer card game featuring **Texas Hold'em Poker** and *
    npm install
    ```
 
-3. **Start the development servers**
+3. **Start the development server**
    ```bash
    npm run dev
    ```
 
 4. **Open your browser**
-   - Frontend: http://localhost:3000
-   - Backend: http://localhost:3001
+   Navigate to `http://localhost:3000`
+
+---
 
 ## 🎯 How to Play
 
-### Texas Hold'em Poker
-1. **Join a game** and wait for other players
-2. **Receive 2 hole cards** dealt face down
-3. **Betting rounds**:
-   - Pre-flop: Bet with your hole cards
-   - Flop: 3 community cards revealed
-   - Turn: 4th community card
-   - River: 5th community card
-4. **Actions available**:
-   - **Fold**: Give up your hand
-   - **Check**: Pass without betting (if no bet to call)
-   - **Call**: Match the current bet
-   - **Raise**: Increase the bet
-5. **Best 5-card hand** wins the pot
+### Basic Rules
+1. **Place Your Bet** - Use the slider to select your bet amount ($10-$1000)
+2. **Get Your Cards** - You and the dealer each get 2 cards
+3. **Make Your Move** - Choose from Hit, Stand, Double, or Split
+4. **Beat the Dealer** - Get closer to 21 without going over
 
-### Blackjack
-1. **Place your bet** using the slider
-2. **Receive 2 cards** (dealer gets 1 visible, 1 hidden)
-3. **Actions available**:
-   - **Hit**: Take another card
-   - **Stand**: Keep your current hand
-   - **Double**: Double your bet and take one card
-4. **Beat the dealer** to 21 without going over
-5. **Dealer hits** on 16 and below, stands on 17+
+### Actions Available
 
-## 📊 Probability Features
+| Action | Description | When Available |
+|--------|-------------|----------------|
+| **Hit** | Take another card | Any time during your turn |
+| **Stand** | Keep your current hand | Any time during your turn |
+| **Double** | Double your bet, take one card | First two cards only |
+| **Split** | Split matching cards into separate hands | When you have a pair |
 
-### Poker Statistics
-- **Winning Probability**: Your chance to win the hand
-- **Outs**: Number of cards that improve your hand
-- **Pot Odds**: Ratio of pot size to call amount
-- **Hand Improvement**: Chances for pairs, straights, flushes, etc.
+### Split Rules
+- Split any two cards of the same **value** (K+Q, J+10, etc.)
+- Each split costs an additional bet equal to your original bet
+- You can split up to **3 times** (maximum 4 hands)
+- Play each hand individually from left to right
+- Aces split only receive one additional card each
 
-### Blackjack Statistics
-- **Bust Probability**: Chance of going over 21
-- **Dealer Bust**: Probability dealer will bust
-- **Optimal Action**: Best move based on basic strategy
-- **Expected Value**: Long-term value of your decision
+### Payouts
+- **Regular Win**: 1:1 (double your bet)
+- **Blackjack**: 3:2 (1.5x your bet + original bet back)
+- **Push (Tie)**: Bet returned
+- **Loss**: Lose your bet
 
-## 🛠️ Technical Architecture
+---
 
-### Backend (Node.js + Express + Socket.IO)
-```
-server/
-├── index.js              # Main server with Socket.IO
-├── gameEngine.js         # Core game logic
-└── probabilityCalculator.js # Probability calculations
-```
+## 🛠️ Technical Details
 
-### Frontend (Vanilla JavaScript + Vite)
-```
-src/
-├── main.js               # Main application logic
-├── gameUI.js             # UI management
-├── notificationManager.js # User notifications
-├── chatManager.js        # Chat functionality
-└── styles/
-    └── main.css          # Complete styling
-```
-
-### Key Technologies
-- **Backend**: Node.js, Express, Socket.IO
-- **Frontend**: Vanilla JavaScript, Vite
+### Built With
+- **Frontend**: Vanilla JavaScript (ES6+)
 - **Styling**: CSS3 with Flexbox/Grid
-- **Real-time**: WebSocket communication
-- **Math**: Probability calculations and game theory
+- **Build Tool**: Vite
+- **Development**: Hot reload and modern dev experience
 
-## 🎨 UI Components
+### Project Structure
+```
+blackjack-master/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # GitHub Pages auto-deployment
+├── public/
+│   └── audio/                  # Sound effects (bet, card, win, lose)
+├── src/
+│   ├── styles/
+│   │   └── main.css           # Complete game styling
+│   └── main.js                # Core blackjack game logic
+├── .gitignore                 # Git ignore rules
+├── index.html                 # Main HTML file
+├── README.md                  # Project documentation
+├── LICENCE
+├── package.json               # Dependencies and scripts
+└── vite.config.js             # Vite configuration
+```
 
-### Game Interface
-- **Welcome Screen**: Game selection with animated cards
-- **Game Table**: Central playing area with community cards
-- **Player Areas**: Individual player cards and chips
-- **Action Controls**: Game-specific buttons and betting
-- **Probability Panel**: Real-time statistics sidebar
-- **Chat Panel**: Collapsible multiplayer chat
+### Key Features Implementation
+- **Split Logic**: Enhanced `canSplit()` function supporting value-based matching
+- **Chip Management**: Accurate tracking with `handBets[]` array for multiple hands
+- **UI State Management**: Real-time updates with proper split hand visualization
+- **Responsive Design**: CSS Grid and Flexbox for all screen sizes
+- **Local Storage**: Settings persistence across sessions
 
-### Responsive Design
-- **Desktop**: Full-featured interface with side panels
-- **Tablet**: Optimized layout with touch-friendly controls
-- **Mobile**: Streamlined interface for smaller screens
+---
+
+## 🎮 Game Strategy Tips
+
+### Basic Strategy
+- **Always split Aces and 8s**
+- **Never split 10s, 5s, or 4s**
+- **Double down on 11 when dealer shows 2-10**
+- **Double down on 10 when dealer shows 2-9**
+- **Stand on 17 or higher**
+- **Hit on 16 or lower when dealer shows 7+**
+
+### Advanced Splitting
+- **10-value cards**: K, Q, J, and 10 can all be split together
+- **Multiple splits**: Keep splitting if you get another matching card
+- **Bet management**: Each split doubles your money at risk
+
+---
+
+## 📱 Responsive Design
+
+The game adapts seamlessly to different screen sizes:
+
+- **Desktop (1200px+)**: Full interface with all controls visible
+- **Tablet (768px-1199px)**: Optimized layout with touch-friendly buttons  
+- **Mobile (320px-767px)**: Streamlined interface, stacked controls
+
+---
 
 ## 🔧 Development
 
 ### Available Scripts
+
 ```bash
-npm run dev          # Start both frontend and backend
-npm run server       # Start backend only
-npm run client       # Start frontend only
+npm run dev          # Start development server with hot reload
 npm run build        # Build for production
-npm run preview      # Preview production build
+npm run preview      # Preview production build locally
 ```
 
-### Project Structure
-```
-card-game-master/
-├── server/              # Backend code
-├── src/                 # Frontend code
-├── index.html           # Main HTML file
-├── package.json         # Dependencies and scripts
-├── vite.config.js       # Vite configuration
-└── README.md           # This file
-```
+### Adding New Features
 
-## 🎯 Game Rules
+The codebase is modular and easy to extend:
 
-### Poker Hand Rankings (Highest to Lowest)
-1. **Royal Flush**: A, K, Q, J, 10 of same suit
-2. **Straight Flush**: 5 consecutive cards of same suit
-3. **Four of a Kind**: 4 cards of same rank
-4. **Full House**: 3 of a kind + pair
-5. **Flush**: 5 cards of same suit
-6. **Straight**: 5 consecutive cards
-7. **Three of a Kind**: 3 cards of same rank
-8. **Two Pair**: 2 pairs
-9. **One Pair**: 2 cards of same rank
-10. **High Card**: Highest card wins
-
-### Blackjack Rules
-- **Goal**: Beat dealer to 21 without going over
-- **Face Cards**: J, Q, K = 10 points
-- **Aces**: 1 or 11 points (player's choice)
-- **Dealer**: Hits on 16 and below, stands on 17+
-- **Blackjack**: A + 10-value card = automatic win (1.5x bet)
-- **Push**: Tie = bet returned
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- **Card Game Logic**: Implemented from scratch with mathematical accuracy
-- **Probability Calculations**: Based on standard poker and blackjack theory
-- **UI Design**: Modern, clean interface inspired by professional gaming platforms
-- **Real-time Features**: WebSocket implementation for seamless multiplayer experience
+1. **Game Logic**: Modify `main.js` for new rules or features
+2. **Styling**: Update `main.css` for visual changes
+3. **UI Components**: Add new modals or controls in the HTML structure
 
 ---
 
-**Enjoy playing Card Game Master! 🎮🃏** 
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
+3. **Make your changes** and test thoroughly
+4. **Commit your changes** (`git commit -m 'Add amazing feature'`)
+5. **Push to the branch** (`git push origin feature/amazing-feature`)
+6. **Open a Pull Request**
+
+### Development Guidelines
+- Follow existing code style and conventions
+- Test all functionality thoroughly, especially split scenarios
+- Ensure mobile responsiveness for new features
+- Update documentation for significant changes
+
+---
+
+## 🐛 Known Issues & Roadmap
+
+### Current Known Issues
+- [ ] None! The game is fully functional 🎉
+
+### Future Features
+- [ ] **Statistics Tracking** - Win/loss ratios, best streaks
+- [ ] **Achievement System** - Unlock badges for milestones
+- [ ] **Card Counting Trainer** - Practice card counting
+- [ ✅ **Multiple Splits** - Up to 3 splits implemented
+- [ ✅ **Sound Effects** - Audio feedback implemented
+- [ ✅ **Theme Customization** - Color picker implemented
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+**⭐ Star this repository if you enjoyed playing! ⭐**
+
+*Built with ❤️ for blackjack enthusiasts*
+
+**[🎮 Play the Game](https://azibmalik.github.io/blackjack-master/)**
+
+</div>
